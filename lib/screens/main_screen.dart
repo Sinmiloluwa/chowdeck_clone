@@ -1,3 +1,4 @@
+import 'package:chowdeck_clone/constants/app_colors.dart';
 import 'package:chowdeck_clone/screens/home_screen.dart';
 import 'package:chowdeck_clone/screens/orders_screen.dart';
 import 'package:chowdeck_clone/screens/profile_screen.dart';
@@ -5,6 +6,7 @@ import 'package:chowdeck_clone/screens/search_screen.dart';
 import 'package:chowdeck_clone/screens/support_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import '../providers/nav_provider.dart';
 
 class MainScreen extends ConsumerWidget {
@@ -24,16 +26,44 @@ class MainScreen extends ConsumerWidget {
 
     return Scaffold(
       body: _screens[index],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: index,
-        onTap: (i) => ref.read(bottomNavProvider.notifier).state = i,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_filled, color: Colors.greenAccent,), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.search_off_outlined, color: Colors.greenAccent,), label: "Search"),
-          BottomNavigationBarItem(icon: Icon(Icons.list_outlined, color: Colors.greenAccent,), label: "Orders"),
-          BottomNavigationBarItem(icon: Icon(Icons.support_outlined, color: Colors.greenAccent,), label: "Support"),
-          BottomNavigationBarItem(icon: Icon(Icons.person_outline, color: Colors.greenAccent,), label: "Profile"),
-        ],
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: BottomNavigationBar(
+          elevation: 0.0,
+          currentIndex: index,
+          type: BottomNavigationBarType.fixed,
+          onTap: (i) => ref.read(bottomNavProvider.notifier).state = i,
+          selectedItemColor: AppColors.myGreen,
+          unselectedItemColor: Colors.grey,
+          selectedIconTheme: IconThemeData(size: 24),
+          unselectedIconTheme: IconThemeData(size: 24),
+          enableFeedback: false,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(LucideIcons.house, color: index == 0 ? AppColors.myGreen : Colors.grey),
+              label: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(LucideIcons.search, color: index == 1 ? AppColors.myGreen : Colors.grey),
+              label: "Search",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(LucideIcons.handbag, color: index == 2 ? AppColors.myGreen : Colors.grey),
+              label: "Orders",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(LucideIcons.messageCircleMore, color: index == 3 ? AppColors.myGreen : Colors.grey),
+              label: "Support",
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset("assets/icons/profile.png", width: 30),
+              label: "Profile",
+            ),
+          ],
+        ),
       ),
     );
   }
