@@ -1,3 +1,4 @@
+import 'package:chowdeck_clone/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -21,14 +22,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.myGreen,
       body: Center(
-        child: Text(
-          "My App",
-          style: TextStyle(
-            fontSize: 32,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        child: Image.asset( 'assets/icons/chowdeck.png', width: 150, height: 150)
       ),
     );
   }
