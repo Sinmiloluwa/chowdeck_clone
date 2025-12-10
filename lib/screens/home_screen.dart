@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                         constraints: BoxConstraints(maxWidth: 200),
                         child: Text(
                           "Morohunbo Avenue, Ibadan",
-                          style: TextStyle(fontSize: 15),
+                          style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -43,29 +43,50 @@ class HomeScreen extends StatelessWidget {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.shopping_bag),
-                      const SizedBox(width: 4),
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.myGreen,
-                          // padding: EdgeInsets.symmetric(
-                          //   horizontal: 14,
-                          // ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
+                      Container(
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                        child: Row(
-                          children: [
-                            Text(
-                              "Filter",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            Icon(Icons.tune, color: Colors.white),
-                          ],
+                        child: Image.asset(
+                          'assets/icons/paper-bag.png',
+                          width: 24,
+                          height: 24,
                         ),
                       ),
+                      const SizedBox(width: 4),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: AppColors.myGreen,
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.3),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
+                            child: Row(
+                              children: [
+                                Text(
+                                  "Filter",
+                                  style:
+                                      TextStyle(fontSize: 14, color: Colors.white),
+                                ),
+                                Image.asset('assets/icons/tune.png',
+                                    width: 16, height: 16, color: Colors.white),
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ],
