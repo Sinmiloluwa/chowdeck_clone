@@ -10,14 +10,14 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 import '../providers/nav_provider.dart';
 
 class MainScreen extends ConsumerWidget {
-  const MainScreen({super.key});
+  MainScreen({super.key});
 
-  final _screens = const [
-    HomeScreen(),
-    SearchScreen(),
-    OrdersScreen(),
-    SupportScreen(),
-    ProfileScreen(),
+  final _screens = [
+    const HomeScreen(),
+    const SearchScreen(),
+    const OrdersScreen(),
+    const SupportScreen(),
+    const ProfileScreen(),
   ];
 
   @override
