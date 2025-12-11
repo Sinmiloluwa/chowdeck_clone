@@ -1,6 +1,7 @@
 // import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chowdeck_clone/constants/app_colors.dart';
+import 'package:chowdeck_clone/screens/promotion_screen.dart';
 import 'package:chowdeck_clone/widgets/icon_card.dart';
 import 'package:flutter/material.dart';
 
@@ -43,16 +44,22 @@ class HomeScreen extends StatelessWidget {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Container(
-                        padding: const EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: Image.asset(
-                          'assets/icons/paper-bag.png',
-                          width: 24,
-                          height: 24,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => PromotionScreen()));
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(3),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[200],
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Image.asset(
+                            'assets/icons/paper-bag.png',
+                            width: 24,
+                            height: 24,
+                          ),
                         ),
                       ),
                       const SizedBox(width: 4),
