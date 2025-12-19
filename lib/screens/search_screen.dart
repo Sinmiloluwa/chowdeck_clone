@@ -223,6 +223,31 @@ class _SearchScreenState extends State<SearchScreen>
     );
   }
 
+  Widget _buildMoreCategoriesList(List<Map<String, dynamic>> items) {
+    return ListView.builder(
+      padding: EdgeInsets.zero,
+      scrollDirection: Axis.horizontal,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.only(right: 12.0),
+          child: GestureDetector(
+            onTap: () {},
+            child: Container(
+              width: 70,
+              height: 50,
+              decoration: BoxDecoration(
+                color: Colors.greenAccent,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: const Center(child: Icon(Icons.tag)),
+            ),
+          ),
+        );
+      },
+      itemCount: categories.length,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
